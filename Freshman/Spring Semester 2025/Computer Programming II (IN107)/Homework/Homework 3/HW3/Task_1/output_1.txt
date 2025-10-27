@@ -1,0 +1,49 @@
+--- Testing Task_1a Non-Variadic Template Functions ---
+Task_1a::max(10, 5): 10
+Task_1a::max(3.14, 2.718): 3.14
+Task_1a::max("zebra", "apple"): zebra
+
+Task_1a::min(10, 5): 5
+Task_1a::min(3.14, 2.718): 2.718
+Task_1a::min("zebra", "apple"): apple
+
+Before Task_1a::swap: x = 1, y = 2
+After Task_1a::swap:  x = 2, y = 1
+Before Task_1a::swap: p = 1.1, q = 9.9
+After Task_1a::swap:  p = 9.9, q = 1.1
+Before Task_1a::swap: str1 = "hello", str2 = "world"
+After Task_1a::swap:  str1 = "world", str2 = "hello"
+
+--- Testing Task_1b Variadic Template Functions ---
+Task_1b::max(10): 10
+Task_1b::max(10, 5): 10
+Task_1b::max(10, 5, 20): 20
+Task_1b::max(10, 5, 20, -3, 15): 20
+Task_1b::max(3.14, 1.618, 2.718): 3.14
+Task_1b::max("cat", "apple", "zebra", "banana"): zebra
+
+Task_1b::min(10): 10
+Task_1b::min(10, 5): 5
+Task_1b::min(10, 5, 20): 5
+Task_1b::min(10, 5, 20, -3, 15): -3
+Task_1b::min(3.14, 1.618, 2.718): 1.618
+Task_1b::min("cat", "apple", "zebra", "banana"): apple
+
+--- Testing SortableCollection ---
+Integer Collection:
+Before sorting: [ 5, 2, 8, 1, 9 ]
+After sorting:  [ 1, 2, 5, 8, 9 ]
+
+Double Collection:
+Before sorting: [ 3.14, 1.618, 2.718, 0.577, 9.9 ]
+After sorting:  [ 0.577, 1.618, 2.718, 3.14, 9.9 ]
+
+String Collection:
+Before sorting: [ zebra, apple, cat, dog, banana, ant ]
+After sorting:  [ ant, apple, banana, cat, dog, zebra ]
+
+--- Testing SortableCollection Exception Handling ---
+Collection size: 2
+Attempting to access element at index 2 (out of bounds)...
+Caught expected exception: Index out of bounds
+Exception test complete.

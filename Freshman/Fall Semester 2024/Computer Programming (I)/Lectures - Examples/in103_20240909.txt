@@ -1,0 +1,341 @@
+
+Computer Programming (I)
+IN103
+
+Ching-Lueh Chang
+clchang@saturn.yzu.edu.tw
+LINE: clchang1982
+
+You could login to MS Teams using portal account and password.
+I record videos every time unless I forget to do so.
+No makeup if I forget to record videos or if the video files cannot be
+accessed, etc.
+
+Midterm exam
+Final exam
+Homework
+
+Roll calls (not affecting semester scores)
+
+The exams are closed-book exams.
+So do not access the Internet, login to portal, discuss with others, etc.,
+during the exams.
+
+Textbook
+C++ How to Program: Late Objects Version by Paul Deitel and Harvey Deitel
+
+It suffices to borrow textbooks from others.
+
+An easy C++ program looks like this:
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << "Hello!" << endl;
+}
+
+It is for humans to read.
+For the computer to run the program, we should turn the program into an
+executable file---This is called "compiling".
+
+verb: compile
+
+The tool that compiles is called a compiler.
+My compiler is g++, but you may use any other C++ compiler.
+
+Suppose that the file name of the program is IN103_20240909_1.cpp, then we
+may use g++ to compile by the following command:
+g++ IN103_20240909_1.cpp
+
+This generates an executable file, typically a.out on Linux environments.
+Then I type a.out, ./a.out, etc., to run the program.
+
+You may use any compiler, e.g., Visual Studio, Borland C++ compiler, etc.
+You may also install Cygwin (which provides you with the g++ compiler) and
+Code::Blocks.
+You may install Cygwin and use the notepad to write your programs. In the
+Cygwin terminal, type g++ file_name to compile.
+
+In case you fail to install any compiler, you may also use an online C++
+compiler!
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   cout << "Hello!" << endl << "Hi " << "Howdy" << endl << endl << endl;
+   cout << "Greetings" << endl;
+}
+
+The program starts from the first line within main.
+Put the message to output within double quotes.
+endl means end line.
+
+cout << "Hello!" << 3 + 8 << endl; // this prints
+
+Whatever appears after two slashs in a line is a comment.
+Comments are omitted by the compiler.
+But they will help people who collaborate with you to understand the
+program.
+
+Styles:
+
+What I learned in college was
+
+int
+main() {
+  xxxxx
+}
+
+The textbook does
+
+int main()
+{
+   xxxx // three spaces for indentation
+}
+
+Some people do
+
+int main() {
+  xxxx
+}
+
+The amout of indentation could be two spaces, three spaces, four spaces,
+eight spaces, a tab key, etc.
+Spaces and newlines do not affect the program.
+
+Weird styles:
+
+int main()
+{
+xxxx // not indenting
+}
+
+int main(){ // not having a space before the left curly brace
+  xxxx
+}
+
+/ is the slash.
+\ is called the backslash.
+
+// strongly typed language
+
+int main()
+{
+   int number1; // declaring a variable, number1, with type int (integer)
+   int number2; // the second number
+   int sum; // the summation of the two numbers
+
+   cin >> number1; // reading from the keyboard
+   cout << "number1 is " << number1 << endl;
+   cin >> number2;
+   cout << "number2 is " << number2 << endl;
+   sum = number1 + number2; // = means assignment
+   cout << "sum is " << sum << endl;
+}
+
+int number1; declares a variable whose name is number1 and whose type is
+int.
+int stands for integer.
+C++ is a strongly typed language: When declaring a variable, you need to
+specify its type.
+cin >> number1; reads from the keyboard and saves the result into number1.
+sum = number1 + number2; means assigning sum to be the value of number1 +
+number2.
+So = is not an equality in C++.
+
+===================================================
+
+   int number1, number2, sum; // declaring three variables all of type int
+
+   cin >> number1 >> number2;
+   
+Many people do not like to declare many variables in a single line because
+it will be harder to give a comment for each variable.
+
+=====================================================
+
+   int sumOfTwoNumbers; // lower camel case
+   int SumOfTwoNumbers; // upper camel case, usually for classes rather than var
+   int sum_of_two_numbers; // snake case
+
+   cin >> number1 >> number2;
+   sumOfTwoNumbers = number1 + number2; // = means assignment
+   cout << "sum is " << sumOfTwoNumbers << endl;
+
+lowerCamelCase is used for all variables in the textbook.
+I learned to use snake_case when I was a freshman.
+UpperCamelCase is often for class names (which we have not covered) but not
+recommended for variable names.
+
+C++ is case sensitive.
+
+   int number1; // declaring a variable, number1, with type int (integer)
+   int number2; // the second number
+   int x;
+   ^^^^^^not recommend because it is hard to understand what x means
+
+   cin >> number1 >> number2;
+   x = number1 + number2; // = means assignment
+   cout << "sum is " << x << endl;
+
+=============================================
+
+   cout << "Enter the first number: "; // good in the real world
+   cin >> number1;
+   cout << "Enter the second number: ";
+   cin >> number2;
+
+In the real world, it is better to prompt for inputs so that the users will
+know what to do.
+But when you take the College Programming Examination (CPE), avoid redundant
+outputs because an exact matching is needed between your program's output
+and the correct output.
+
+Usually, we have a space on each side of a binary operator (for most binary
+operators), e.g.,
+   cin >> number1;
+   cin >> number2;
+   sum = number1 + number2; // = means assignment
+   cout << "sum is " << sum << endl;
+
+= is called the assignment operator.
+<< is called the stream insertion operator.
+>> is called the stream extraction operator.
+
+   cout << 7 / 2 << endl; // 3 rather than 3.5, integer division
+   cout << 7 % 2 << endl; // 7 modulo 2 takes the remainder
+   cout << 15 % 4 << endl; // 3
+
+numerator
+denominator
+
+The result of an integer division is always an integer.
+If we want a normal division like in math, do 7.0 / 2.0.
+
+7 is an integer
+7.0 is a floating-point number
+
+   cout << ( number1 + number2 ) * number1 << endl;
+   cout << number1 + number2 * number1 << endl;
+   cout << (number1 + number2) * number1 << endl; // also very common style
+
+=================================================
+
+   if ( number1 == number2 )
+      cout << "Equal" << endl;
+
+   if ( number1 != number2 )
+      cout << "Not equal" << endl;
+
+   if ( number1 > number2 )
+      cout << "Greater than" << endl;
+
+   if ( number1 <= number2 )
+      cout << "Less than or equal to" << endl;
+
+====================================
+
+   if ( number1 == number2 )
+   {
+      cout << "Equal" << endl;
+      cout << "hahaha" << endl;
+   }
+
+
+
+The things enclosed within the curly braces form a so-called compound
+statement.
+
+   if ( number1 > number2 );
+      cout << "Greater than" << endl;
+
+; is called the null statement.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+
+</title></head>
+<body>
+    <form method="post" action="./DownloadFile.aspx?Source=Course&amp;CourseType=2&amp;AttachmentID=461643&amp;AttachmentFileName=in103_20240909.txt" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTEzNDM3NzkxOWRkE99b+haQV3ZBm26TDQfyZY8BZWY=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F69017DB" />
+</div>
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
